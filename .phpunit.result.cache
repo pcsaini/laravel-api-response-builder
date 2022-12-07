@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Prem\\ResponseBuilder\\Feature\\ResponseBuilderTest::test_success":3},"times":{"Prem\\ResponseBuilder\\Feature\\ResponseBuilderTest::test_success":0.149,"Prem\\ResponseBuilder\\Feature\\ResponseBuilderTest::test_error":0.01}}
