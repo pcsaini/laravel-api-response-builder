@@ -1,10 +1,10 @@
 <?php
 
-namespace Prem\ResponseBuilder\Feature;
+namespace Pcsaini\ResponseBuilder\Feature;
 
 use Illuminate\Http\Response;
-use Prem\ResponseBuilder\ResponseBuilder;
-use Prem\ResponseBuilder\Tests\TestCase;
+use Pcsaini\ResponseBuilder\ResponseBuilder;
+use Pcsaini\ResponseBuilder\Tests\TestCase;
 
 class ResponseBuilderTest extends TestCase
 {

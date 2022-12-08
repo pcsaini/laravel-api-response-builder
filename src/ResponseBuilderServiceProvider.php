@@ -1,13 +1,13 @@
 <?php
 
-namespace Prem\ResponseBuilder;
+namespace Pcsaini\ResponseBuilder;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
  * Laravel API Response Builder
  *
- * @package   Prem\ResponseBuilder
+ * @package   Pcsaini\ResponseBuilder
  *
  * @author    Prem Chand Saini
  * @copyright 2022 Prem Chand Saini
@@ -23,9 +23,7 @@ class ResponseBuilderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('response_builder', ResponseBuilder::class);
-
-        $this->mergeConfigFrom(__DIR__.'./../config/api-response.php', 'api-response');
+        $this->mergeConfigFrom(__DIR__.'./../config/api-response.php', 'response-builder');
     }
 
     /**
@@ -50,7 +48,7 @@ class ResponseBuilderServiceProvider extends ServiceProvider
                 [
                     __DIR__.'./../config/api-response.php' => config_path('api-response.php'),
                 ],
-                'api-response-config'
+                'response-builder-config'
             );
         }
     }

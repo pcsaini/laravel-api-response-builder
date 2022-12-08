@@ -1,11 +1,10 @@
 <?php
 
-namespace Prem\ResponseBuilder;
+namespace Pcsaini\ResponseBuilder;
 
 use Illuminate\Http\Response;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
-
 
 class ResponseBuilder
 {
@@ -68,7 +67,8 @@ class ResponseBuilder
      * @param string|null $message
      * @return $this
      */
-    public function withMessage(string $message = null): self {
+    public function withMessage(string $message = null): self
+    {
         $this->message = $message;
 
         return $this;
@@ -87,7 +87,7 @@ class ResponseBuilder
 
     /**
      * @param string $key
-     * @param  mixed  $value
+     * @param mixed $value
      * @return $this
      */
     public function with(string $key, mixed $value): self
@@ -97,7 +97,13 @@ class ResponseBuilder
         return $this;
     }
 
-    public function withData($data = null, $resourceNamespace = null): self {
+    /**
+     * @param $data
+     * @param $resourceNamespace
+     * @return $this
+     */
+    public function withData($data = null, $resourceNamespace = null): self
+    {
         if ($data instanceof LengthAwarePaginator) {
             $this->withPagination($data, $resourceNamespace);
         } else {
@@ -138,8 +144,8 @@ class ResponseBuilder
     }
 
     /**
-     * @param  bool  $condition
-     * @param  callable  $callback
+     * @param bool $condition
+     * @param callable $callback
      * @return $this
      */
     public function when(bool $condition, callable $callback): self
@@ -151,6 +157,13 @@ class ResponseBuilder
         return $this;
     }
 
+    /**
+     * @param mixed $data
+     * @param string|null $message
+     * @param int|null $httpCode
+     * @param array $appends
+     * @return Response
+     */
     public static function success(mixed $data, string $message = null, int $httpCode = null, array $appends = []): Response
     {
         return self::asSuccess($httpCode)
@@ -160,7 +173,7 @@ class ResponseBuilder
             ->when(!empty($message), function (ResponseBuilder $builder) use ($message) {
                 return $builder->withMessage($message);
             })
-            ->when(! empty($appends), function (ResponseBuilder $builder) use ($appends) {
+            ->when(!empty($appends), function (ResponseBuilder $builder) use ($appends) {
                 foreach ($appends as $key => $value) {
                     $builder->with($key, $value);
                 }
@@ -169,6 +182,12 @@ class ResponseBuilder
             })->build();
     }
 
+    /**
+     * @param $message
+     * @param $httpCode
+     * @param $appends
+     * @return Response
+     */
     public static function error($message, $httpCode = null, $appends = []): Response
     {
         return self::asError($httpCode)
@@ -188,7 +207,8 @@ class ResponseBuilder
     /**
      * @return Response
      */
-    public function build(): Response {
+    public function build(): Response
+    {
         $this->response['status'] = $this->status;
         !is_null($this->message) && $this->response['message'] = $this->message;
 

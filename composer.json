@@ -19,23 +19,19 @@
     },
     "autoload": {
         "psr-4": {
-            "Prem\\ResponseBuilder\\": "src/",
-            "Prem\\ResponseBuilder\\Tests\\": "tests"
+            "Pcsaini\\ResponseBuilder\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Prem\\ResponseBuilder\\Tests\\": "tests"
+            "Pcsaini\\ResponseBuilder\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Prem\\ResponseBuilder\\ResponseBuilderServiceProvider"
-            ],
-            "aliases": {
-                "response_builder": "Prem\\ResponseBuilder\\Facades\\ResponseBuilder"
-            }
+                "Pcsaini\\ResponseBuilder\\ResponseBuilderServiceProvider"
+            ]
         }
     }
 }

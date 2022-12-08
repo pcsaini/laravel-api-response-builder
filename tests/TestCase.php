@@ -1,15 +1,16 @@
 <?php
 
-namespace Prem\ResponseBuilder\Tests;
+namespace Pcsaini\ResponseBuilder\Tests;
 
-use Prem\ResponseBuilder\ResponseBuilderServiceProvider;
+use Pcsaini\ResponseBuilder\ResponseBuilderServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
     public function setUp(): void
     {
         parent::setUp();
-        // additional setup
+        // Additional setup
+
     }
 
     protected function getPackageProviders($app)
