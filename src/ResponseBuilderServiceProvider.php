@@ -23,7 +23,7 @@ class ResponseBuilderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'./../config/api-response.php', 'response-builder');
+        $this->mergeConfigFrom(__DIR__.'./../config/api-response.php', 'api-response.php');
     }
 
     /**
