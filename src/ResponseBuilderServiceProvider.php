@@ -46,9 +46,9 @@ class ResponseBuilderServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
-                    __DIR__.'./../config/api-response.php' => config_path('api-response.php'),
+                    __DIR__.'/../config/api-response.php' => config_path('api-response.php'),
                 ],
-                'response-builder-config'
+                'response-builder'
             );
         }
     }
